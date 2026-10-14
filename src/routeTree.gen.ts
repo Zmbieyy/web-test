@@ -10,33 +10,170 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesBrandingDesignRouteImport } from './routes/services/branding-design'
+import { Route as ServicesCustomSoftwareRouteImport } from './routes/services/custom-software'
+import { Route as ServicesDigitalMarketingRouteImport } from './routes/services/digital-marketing'
+import { Route as ServicesMaintenanceSupportRouteImport } from './routes/services/maintenance-support'
+import { Route as ServicesMobileAppsRouteImport } from './routes/services/mobile-apps'
+import { Route as ServicesWebsiteDevelopmentRouteImport } from './routes/services/website-development'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesBrandingDesignRoute = ServicesBrandingDesignRouteImport.update({
+  id: '/services/branding-design',
+  path: '/services/branding-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCustomSoftwareRoute = ServicesCustomSoftwareRouteImport.update({
+  id: '/services/custom-software',
+  path: '/services/custom-software',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesDigitalMarketingRoute =
+  ServicesDigitalMarketingRouteImport.update({
+    id: '/services/digital-marketing',
+    path: '/services/digital-marketing',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesMaintenanceSupportRoute =
+  ServicesMaintenanceSupportRouteImport.update({
+    id: '/services/maintenance-support',
+    path: '/services/maintenance-support',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesMobileAppsRoute = ServicesMobileAppsRouteImport.update({
+  id: '/services/mobile-apps',
+  path: '/services/mobile-apps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesWebsiteDevelopmentRoute =
+  ServicesWebsiteDevelopmentRouteImport.update({
+    id: '/services/website-development',
+    path: '/services/website-development',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/services/branding-design': typeof ServicesBrandingDesignRoute
+  '/services/custom-software': typeof ServicesCustomSoftwareRoute
+  '/services/digital-marketing': typeof ServicesDigitalMarketingRoute
+  '/services/maintenance-support': typeof ServicesMaintenanceSupportRoute
+  '/services/mobile-apps': typeof ServicesMobileAppsRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/services/branding-design': typeof ServicesBrandingDesignRoute
+  '/services/custom-software': typeof ServicesCustomSoftwareRoute
+  '/services/digital-marketing': typeof ServicesDigitalMarketingRoute
+  '/services/maintenance-support': typeof ServicesMaintenanceSupportRoute
+  '/services/mobile-apps': typeof ServicesMobileAppsRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/services/branding-design': typeof ServicesBrandingDesignRoute
+  '/services/custom-software': typeof ServicesCustomSoftwareRoute
+  '/services/digital-marketing': typeof ServicesDigitalMarketingRoute
+  '/services/maintenance-support': typeof ServicesMaintenanceSupportRoute
+  '/services/mobile-apps': typeof ServicesMobileAppsRoute
+  '/services/website-development': typeof ServicesWebsiteDevelopmentRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/services/branding-design'
+    | '/services/custom-software'
+    | '/services/digital-marketing'
+    | '/services/maintenance-support'
+    | '/services/mobile-apps'
+    | '/services/website-development'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/services/branding-design'
+    | '/services/custom-software'
+    | '/services/digital-marketing'
+    | '/services/maintenance-support'
+    | '/services/mobile-apps'
+    | '/services/website-development'
+    | '/services'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/faq'
+    | '/services/branding-design'
+    | '/services/custom-software'
+    | '/services/digital-marketing'
+    | '/services/maintenance-support'
+    | '/services/mobile-apps'
+    | '/services/website-development'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  ServicesBrandingDesignRoute: typeof ServicesBrandingDesignRoute
+  ServicesCustomSoftwareRoute: typeof ServicesCustomSoftwareRoute
+  ServicesDigitalMarketingRoute: typeof ServicesDigitalMarketingRoute
+  ServicesMaintenanceSupportRoute: typeof ServicesMaintenanceSupportRoute
+  ServicesMobileAppsRoute: typeof ServicesMobileAppsRoute
+  ServicesWebsiteDevelopmentRoute: typeof ServicesWebsiteDevelopmentRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +185,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/branding-design': {
+      id: '/services/branding-design'
+      path: '/services/branding-design'
+      fullPath: '/services/branding-design'
+      preLoaderRoute: typeof ServicesBrandingDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/custom-software': {
+      id: '/services/custom-software'
+      path: '/services/custom-software'
+      fullPath: '/services/custom-software'
+      preLoaderRoute: typeof ServicesCustomSoftwareRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/digital-marketing': {
+      id: '/services/digital-marketing'
+      path: '/services/digital-marketing'
+      fullPath: '/services/digital-marketing'
+      preLoaderRoute: typeof ServicesDigitalMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/maintenance-support': {
+      id: '/services/maintenance-support'
+      path: '/services/maintenance-support'
+      fullPath: '/services/maintenance-support'
+      preLoaderRoute: typeof ServicesMaintenanceSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/mobile-apps': {
+      id: '/services/mobile-apps'
+      path: '/services/mobile-apps'
+      fullPath: '/services/mobile-apps'
+      preLoaderRoute: typeof ServicesMobileAppsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/website-development': {
+      id: '/services/website-development'
+      path: '/services/website-development'
+      fullPath: '/services/website-development'
+      preLoaderRoute: typeof ServicesWebsiteDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  ServicesBrandingDesignRoute: ServicesBrandingDesignRoute,
+  ServicesCustomSoftwareRoute: ServicesCustomSoftwareRoute,
+  ServicesDigitalMarketingRoute: ServicesDigitalMarketingRoute,
+  ServicesMaintenanceSupportRoute: ServicesMaintenanceSupportRoute,
+  ServicesMobileAppsRoute: ServicesMobileAppsRoute,
+  ServicesWebsiteDevelopmentRoute: ServicesWebsiteDevelopmentRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
