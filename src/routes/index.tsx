@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Briefcase, HeartPulse, MessagesSquare, ShieldCheck, ShoppingBag, Sprout, Target, UtensilsCrossed, Wrench } from "lucide-react";
 import hero from "@/assets/hero.jpg";
 import { FAQS, SERVICES } from "@/lib/site";
-import { FaqList, FinalCta, SectionHead, ServiceCard } from "@/components/site/Layout";
+import { FaqList, FinalCta, Marquee, Reveal, SectionHead, ServiceCard } from "@/components/site/Layout";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -69,9 +69,10 @@ function Index() {
               <Link to="/services" className="inline-flex items-center rounded-sm border border-navy-border px-6 py-3 font-semibold hover:bg-navy-border">Explore Our Services</Link>
             </div>
           </div>
-          <img src={hero} width={1408} height={1056} alt="Website, software dashboard and mobile app interfaces" className="fade-up w-full rounded-md border border-navy-border" />
+          <img src={hero} width={1408} height={1056} alt="Website, software dashboard and mobile app interfaces" className="fade-up float-slow w-full rounded-md border border-navy-border" />
         </div>
       </section>
+      <Marquee items={["Websites", "Custom Software", "Mobile Apps", "SEO", "Branding", "Ecommerce", "Maintenance"]} />
 
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-6 py-14">
@@ -93,7 +94,7 @@ function Index() {
           <Link to="/services" className="inline-flex items-center gap-2 font-semibold text-primary">All services <ArrowRight className="h-4 w-4" /></Link>
         </div>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((s) => <ServiceCard key={s.slug} s={s} />)}
+          {SERVICES.map((s, i) => <Reveal key={s.slug} delay={(i % 3) * 100}><ServiceCard s={s} /></Reveal>)}
         </div>
       </section>
 
@@ -143,12 +144,12 @@ function Index() {
           <p className="eyebrow">Why Canlaa</p>
           <h2 className="mt-3 max-w-2xl text-3xl font-semibold md:text-4xl">A partner that's easy to work with — and built to last.</h2>
           <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            {WHY.map(({ i: Icon, t, d }) => (
-              <div key={t}>
+            {WHY.map(({ i: Icon, t, d }, idx) => (
+              <Reveal key={t} delay={idx * 120}>
                 <Icon className="h-7 w-7 text-electric" />
                 <h3 className="mt-5 text-lg font-semibold">{t}</h3>
                 <p className="mt-2 text-sm text-navy-muted">{d}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

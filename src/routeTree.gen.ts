@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as FaqRouteImport } from './routes/faq'
+import { Route as WorkRouteImport } from './routes/work'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as ServicesBrandingDesignRouteImport } from './routes/services/branding-design'
 import { Route as ServicesCustomSoftwareRouteImport } from './routes/services/custom-software'
@@ -39,6 +40,11 @@ const ContactRoute = ContactRouteImport.update({
 const FaqRoute = FaqRouteImport.update({
   id: '/faq',
   path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkRoute = WorkRouteImport.update({
+  id: '/work',
+  path: '/work',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
@@ -85,6 +91,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/work': typeof WorkRoute
   '/services/branding-design': typeof ServicesBrandingDesignRoute
   '/services/custom-software': typeof ServicesCustomSoftwareRoute
   '/services/digital-marketing': typeof ServicesDigitalMarketingRoute
@@ -98,6 +105,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/work': typeof WorkRoute
   '/services/branding-design': typeof ServicesBrandingDesignRoute
   '/services/custom-software': typeof ServicesCustomSoftwareRoute
   '/services/digital-marketing': typeof ServicesDigitalMarketingRoute
@@ -112,6 +120,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
   '/faq': typeof FaqRoute
+  '/work': typeof WorkRoute
   '/services/branding-design': typeof ServicesBrandingDesignRoute
   '/services/custom-software': typeof ServicesCustomSoftwareRoute
   '/services/digital-marketing': typeof ServicesDigitalMarketingRoute
@@ -127,6 +136,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
+    | '/work'
     | '/services/branding-design'
     | '/services/custom-software'
     | '/services/digital-marketing'
@@ -140,6 +150,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
+    | '/work'
     | '/services/branding-design'
     | '/services/custom-software'
     | '/services/digital-marketing'
@@ -153,6 +164,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/contact'
     | '/faq'
+    | '/work'
     | '/services/branding-design'
     | '/services/custom-software'
     | '/services/digital-marketing'
@@ -167,6 +179,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
   FaqRoute: typeof FaqRoute
+  WorkRoute: typeof WorkRoute
   ServicesBrandingDesignRoute: typeof ServicesBrandingDesignRoute
   ServicesCustomSoftwareRoute: typeof ServicesCustomSoftwareRoute
   ServicesDigitalMarketingRoute: typeof ServicesDigitalMarketingRoute
@@ -204,6 +217,13 @@ declare module '@tanstack/react-router' {
       path: '/faq'
       fullPath: '/faq'
       preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work': {
+      id: '/work'
+      path: '/work'
+      fullPath: '/work'
+      preLoaderRoute: typeof WorkRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/services/': {
@@ -263,6 +283,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
   FaqRoute: FaqRoute,
+  WorkRoute: WorkRoute,
   ServicesBrandingDesignRoute: ServicesBrandingDesignRoute,
   ServicesCustomSoftwareRoute: ServicesCustomSoftwareRoute,
   ServicesDigitalMarketingRoute: ServicesDigitalMarketingRoute,
