@@ -78,7 +78,7 @@ export const Route = createFileRoute("/about")({
           {[["Strategy", "Plans projects and keeps everything on track."], ["Design", "Creates friendly, clear interfaces and brands."], ["Development", "Builds fast, secure websites and apps."], ["Growth", "Helps customers find you through SEO and content."]].map(([t, d], i) => (
             <Reveal key={t} delay={i * 100}>
               <div className="h-full rounded-md bg-card p-6 shadow-card transition-transform duration-300 hover:-translate-y-1">
-                <div className="grid h-14 w-14 place-items-center rounded-full bg-accent font-display text-xl font-semibold text-primary">{t[0]}</div>
+                <div className="grid h-14 w-14 place-items-center rounded-full bg-accent font-display text-xl font-semibold text-primary">{t?.[0]}</div>
                 <h3 className="mt-5 text-lg font-semibold">{t}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{d}</p>
               </div>
