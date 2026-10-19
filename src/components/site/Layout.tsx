@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { ArrowRight, ArrowUpRight, Menu, X, Mail, MessageCircle } from "lucide-react";
 import { CONTACT, NAV, SERVICES } from "@/lib/site";
 
@@ -161,6 +161,28 @@ export function FaqList({ items }: { items: { q: string; a: string }[] }) {
           <p className="mt-4 max-w-3xl leading-relaxed text-muted-foreground">{f.a}</p>
         </details>
       ))}
+    </div>
+  );
+}
+
+export function Reveal({ children, className = "", delay = 0 }: { children: ReactNode; className?: string; delay?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => { if (e?.isIntersecting) { el.classList.add("is-in"); io.disconnect(); } }, { threshold: 0.15 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  return <div ref={ref} className={`reveal ${className}`} style={{ transitionDelay: `${delay}ms` }}>{children}</div>;
+}
+
+export function Marquee({ items }: { items: string[] }) {
+  return (
+    <div className="overflow-hidden border-y border-navy-border bg-navy py-5 text-navy-muted">
+      <div className="marquee flex w-max gap-12 whitespace-nowrap font-display text-lg">
+        {[...items, ...items].map((t, i) => <span key={i} className="flex items-center gap-12">{t}<span className="text-electric">✦</span></span>)}
+      </div>
     </div>
   );
 }
