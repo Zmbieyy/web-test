@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { FinalCta, PageHero, SectionHead } from "@/components/site/Layout";
+import { FinalCta, PageHero, Reveal, SectionHead } from "@/components/site/Layout";
 
 const VALUES = [
   { t: "Clear communication", d: "Regular updates, honest timelines and no jargon. You always know where your project stands." },
@@ -41,6 +41,49 @@ export const Route = createFileRoute("/about")({
               </div>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <SectionHead eyebrow="Our story" title="From one small project to a trusted partner." />
+        <ol className="mt-12 space-y-8 border-l-2 border-primary/30 pl-8">
+          {[
+            ["The beginning", "Canlaa started by helping local shops and friends get online with simple, honest websites."],
+            ["Growing the team", "We added developers, designers and marketers so clients could get everything in one place."],
+            ["Going global", "Today we support businesses across Asia, Europe, Australia and the Middle East."],
+            ["What's next", "More tools, smarter automation and long-term partnerships with the businesses we serve."],
+          ].map(([t, d], i) => (
+            <Reveal key={t} delay={i * 100}>
+              <li className="relative">
+                <span className="absolute -left-[41px] top-1 h-4 w-4 rounded-full bg-primary ring-4 ring-accent" />
+                <h3 className="text-xl font-semibold">{t}</h3>
+                <p className="mt-2 max-w-2xl text-muted-foreground">{d}</p>
+              </li>
+            </Reveal>
+          ))}
+        </ol>
+      </section>
+      <section className="bg-navy-gradient text-navy-foreground">
+        <div className="mx-auto grid max-w-7xl gap-8 px-6 py-20 sm:grid-cols-2 lg:grid-cols-4">
+          {[["5+", "countries served"], ["6", "core services"], ["1 day", "reply time"], ["100%", "friendly service"]].map(([k, v], i) => (
+            <Reveal key={v} delay={i * 100}>
+              <p className="font-display text-5xl font-semibold text-electric">{k}</p>
+              <p className="mt-2 text-navy-muted">{v}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <SectionHead eyebrow="The team" title="Real people, ready to help." text="A small, focused team of designers, developers and strategists." />
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {[["Strategy", "Plans projects and keeps everything on track."], ["Design", "Creates friendly, clear interfaces and brands."], ["Development", "Builds fast, secure websites and apps."], ["Growth", "Helps customers find you through SEO and content."]].map(([t, d], i) => (
+            <Reveal key={t} delay={i * 100}>
+              <div className="h-full rounded-md bg-card p-6 shadow-card transition-transform duration-300 hover:-translate-y-1">
+                <div className="grid h-14 w-14 place-items-center rounded-full bg-accent font-display text-xl font-semibold text-primary">{t[0]}</div>
+                <h3 className="mt-5 text-lg font-semibold">{t}</h3>
+                <p className="mt-2 text-sm text-muted-foreground">{d}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
       <FinalCta />
